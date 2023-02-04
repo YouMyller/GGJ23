@@ -19,6 +19,8 @@ public class PlayerJump : MonoBehaviour
     private bool ready2JUmp;
     public float BounceMul;
 
+    public AudioSource jumpStartSound;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -43,6 +45,7 @@ public class PlayerJump : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space ) && JumpHeldTimer < 0.5f)
         {
+	   jumpStartSound.Play();
             rb.AddForce(0, JumpHeld, 0, ForceMode.Acceleration);
         }
 

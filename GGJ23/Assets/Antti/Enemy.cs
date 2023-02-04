@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     private bool chasing;
     private NavMeshAgent agent;
 
+    public AudioSource aggroSound;
+
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +48,7 @@ public class Enemy : MonoBehaviour
 
     public void StartChase()
     {
+	aggroSound.Play();
         chasing = true;
     }
 

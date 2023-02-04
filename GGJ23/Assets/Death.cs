@@ -31,7 +31,7 @@ public class Death : MonoBehaviour
 	public GameObject Scene3Image4;
 
 	public AudioSource memorySound;
-
+	private AudioSource bounceSound;
 
 	// Start is called before the first frame update
 	void Start()
@@ -153,15 +153,20 @@ void OnCollisionEnter(Collision collision)
 
 void OnTriggerEnter(Collider other)
 {
-	if(other.gameObject.tag == "EnemyAmmo")
-		SceneManager.LoadScene(SceneManager.GetActiveScene().name);	
-	else if(other.gameObject.tag == "Memory")
-	{
-		memorySound.Play();
-		timer = 0;
-		Destroy(other.gameObject);
-		ShowCutscene();
-	}
+		if (other.gameObject.tag == "EnemyAmmo")
+			SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		else if (other.gameObject.tag == "Memory")
+		{
+			memorySound.Play();
+			timer = 0;
+			Destroy(other.gameObject);
+			ShowCutscene();
+		}
+		else if (other.gameObject.tag == "Bouncer")
+		{
+			bounceSound = other.gameObject.transform.parent.gameObject.GetComponent<AudioSource>();
+			bounceSound.Play();
+		}
 }
 
 private void ShowCutscene()
