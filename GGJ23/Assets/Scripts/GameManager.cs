@@ -11,11 +11,13 @@ public class GameManager : MonoBehaviour
     GameStates CurrentGameState;
 
     [SerializeField]
-    private GameObject GameOver;
+    private GameObject gameOver;
     [SerializeField]
-    private GameObject PauseMenu;
+    private GameObject pauseMenu;
+    [SerializeField]
+    private GameObject mainMenu;
 
-    float testFloat = 0;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -44,7 +46,7 @@ public class GameManager : MonoBehaviour
    	if (CurrentGameState == GameStates.Death)
 	{
 		Time.timeScale = 0;
-		GameOver.SetActive(true);
+		gameOver.SetActive(true);
 	}	
 	else if(CurrentGameState == GameStates.Menu)
 	{
@@ -52,17 +54,24 @@ public class GameManager : MonoBehaviour
 	}
 	else if(CurrentGameState == GameStates.Pause)
 	{
+		pauseMenu.SetActive(true);
 		Time.timeScale = 0;
-		PauseMenu.SetActive(true);
 	}
 	else if (CurrentGameState == GameStates.Main)
 	{
-		//things that happens in transition to main
+		mainMenu.SetActive(false);
+		pauseMenu.SetActive(false);
+		Time.timeScale = 1;
+		/*gameOver = GameObject.Find("Canvas/Game Over");
+		pauseMenu = GameObject.Find("Canvas/PauseMenu");
+		gameOver.SetActive(false);
+		pauseMenu.SetActive(false);*/
 	}
 	else
 	{
-		Time.timeScale = 1;
-		GameOver.SetActive(false);
+		//Time.timeScale = 1;
+		//DON'T USE TIMESCALE - instead, Player and enemies check game state (if paused, don't do anything)
+		gameOver.SetActive(false);
 	}
 	
     }
@@ -79,6 +88,7 @@ public class GameManager : MonoBehaviour
 	
    public void StartGame()
    {
+	ChangeGameState(GameStates.Main);
 	SceneManager.LoadScene("Main");
    }
     
@@ -93,4 +103,9 @@ public class GameManager : MonoBehaviour
    {
    	ChangeGameState(GameStates.Main);
    }
+
+   public void Unpause()
+  {
+	ChangeGameState(GameStates.Main);
+  }
 }

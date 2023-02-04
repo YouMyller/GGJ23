@@ -43,5 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df127413c40a14cbfbb3f95dbb6f3ee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameOver: {fileID: 0}
-  PauseMenu: {fileID: 0}
+  GameOver: {fileID: 2056675763194872125, guid: 21f6f8f3e323c48fe90af30813760984, type: 3}
+  PauseMenu: {fileID: 3470306255063706343, guid: d3403550869ca471a98256992ec8a76b, type: 3}
