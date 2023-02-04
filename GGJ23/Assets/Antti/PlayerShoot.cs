@@ -10,30 +10,31 @@ public class PlayerShoot : MonoBehaviour
     public float delayTime;
     public float destroyTime;
     private float delayTimer;
-    
+    private Rigidbody Player;
 
     // Start is called before the first frame update
     void Start()
     {
+        Player = GameObject.Find("PlayerController").GetComponent<Rigidbody>();
         delayTimer = delayTime;
     }
 
     // Update is called once per frame
     void Update()
     {
-
         delayTimer += Time.deltaTime;
 
         if (Input.GetKey(KeyCode.LeftControl) && delayTimer > delayTime){
             delayTimer = 0;
-            StartCoroutine("SpawnAmmo");
+            SpawnAmmo();
         }
     }
 
 
     private void SpawnAmmo()
     {
-        GameObject newAmmo = Instantiate(ammo, gameObject.transform.position, gameObject.transform.rotation);
+        GameObject newAmmo = Instantiate(ammo, new Vector3(transform.position.x + transform.right.x, transform.position.y, transform.position.z + transform.forward.z), gameObject.transform.rotation);
+        newAmmo.transform.GetComponent<Rigidbody>().velocity = Player.velocity;
         Destroy(newAmmo, destroyTime);
     }
 

@@ -10,14 +10,15 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        print(gameManager);
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-            Pause();
+        /*if (Input.GetKeyDown(KeyCode.Escape))
+            Pause();*/
         /*else if (Input.GetKey(KeyCode.Space))
             GoToMenu();*/
 
@@ -31,19 +32,19 @@ public class PlayerController : MonoBehaviour
         //in game manager change state function: checkpoints would be nice :)
     }
 
-    public void GoToMenu()
+    /*public void GoToMenu()
     {
         gameManager.ChangeGameState(GameManager.GameStates.Menu);
-    }
+    }*/
 
-    public void Pause()
+    /*public void Pause()
     {
         gameManager.ChangeGameState(GameManager.GameStates.Pause);
         print("Pause");
         //TODO: 
         //Create pause menu elements
         //in game manager change state function: pause gameplay, show menu elements
-    }
+    }*/
 
     public void StartCutscene()
     {

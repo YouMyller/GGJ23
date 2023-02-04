@@ -8,7 +8,8 @@ public class GameManager : MonoBehaviour
 {
     [HideInInspector]
     public enum GameStates { Menu, Main, Cutscene, Pause, Death }
-    GameStates CurrentGameState;
+    [HideInInspector]
+    public GameStates CurrentGameState;
 
     [SerializeField]
     private GameObject gameOver;
@@ -16,11 +17,12 @@ public class GameManager : MonoBehaviour
     private GameObject pauseMenu;
     [SerializeField]
     private GameObject mainMenu;
+	[SerializeField]
+	private GameObject mainUI;
 
-    
 
-    // Start is called before the first frame update
-    void Start()
+	// Start is called before the first frame update
+	void Start()
     {
         CurrentGameState = GameStates.Menu;
     }
@@ -61,6 +63,7 @@ public class GameManager : MonoBehaviour
 	{
 		mainMenu.SetActive(false);
 		pauseMenu.SetActive(false);
+		mainUI.SetActive(true);
 		Time.timeScale = 1;
 		/*gameOver = GameObject.Find("Canvas/Game Over");
 		pauseMenu = GameObject.Find("Canvas/PauseMenu");

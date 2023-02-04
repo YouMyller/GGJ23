@@ -17,6 +17,7 @@ public class PlayerJump : MonoBehaviour
     public float fallBoost;
     private bool earlyJump;
     private bool ready2JUmp;
+    public float BounceMul;
 
     void Start()
     {
@@ -83,6 +84,8 @@ public class PlayerJump : MonoBehaviour
         }
     }
 
+    
+
     private IEnumerator CoyoteJump()
     {
         yield return new WaitForSeconds(coyoteWaitTime);
@@ -94,5 +97,14 @@ public class PlayerJump : MonoBehaviour
 
         earlyJump = true;
 
+    }
+
+    public void Bounce()
+    {
+        earlyJump = false;
+        ready2JUmp = false;
+        rb.AddForce(JumpForce * BounceMul, ForceMode.Force);
+        JumpHeldTimer = 0;
+        jumpCount = 1;
     }
 }
