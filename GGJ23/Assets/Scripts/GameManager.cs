@@ -12,7 +12,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     private GameObject GameOver;
-
+    [SerializeField]
+    private GameObject PauseMenu;
 
     float testFloat = 0;
 
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
 		if(CurrentGameState == GameStates.Death)
 			GameOverInput();
 
+
     }
 
     public void ChangeGameState(GameStates newGameState)
@@ -47,6 +49,15 @@ public class GameManager : MonoBehaviour
 	else if(CurrentGameState == GameStates.Menu)
 	{
 		SceneManager.LoadScene("Menu");
+	}
+	else if(CurrentGameState == GameStates.Pause)
+	{
+		Time.timeScale = 0;
+		PauseMenu.SetActive(true);
+	}
+	else if (CurrentGameState == GameStates.Main)
+	{
+		//things that happens in transition to main
 	}
 	else
 	{
@@ -76,5 +87,10 @@ public class GameManager : MonoBehaviour
    {
 	print("QUIT");
 	Application.Quit();
+   }
+
+   public void ContinueGame()
+   {
+   	ChangeGameState(GameStates.Main);
    }
 }
