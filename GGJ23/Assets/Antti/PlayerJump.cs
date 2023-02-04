@@ -37,6 +37,7 @@ public class PlayerJump : MonoBehaviour
             rb.AddForce(JumpForce, ForceMode.Force);
             JumpHeldTimer = 0;
             jumpCount = 1;
+            earlyJump = false;
         }
 
         if (Input.GetKey(KeyCode.Space ) && JumpHeldTimer < 0.5f)
@@ -52,12 +53,13 @@ public class PlayerJump : MonoBehaviour
         if (grounded == false && rb.velocity.y < 0)
         {
             rb.AddForce(0, fallBoost, 0, ForceMode.Force);
+            earlyJump = true;
         }
     }
 
     private void OnCollisionStay(Collision collision)
     {
-        if(collision.collider.tag == "Platform")
+        if(collision.collider.tag == "Platform" && ready2JUmp == false && earlyJump == true)
         {
             grounded = true;
             jumpCount = 0;
