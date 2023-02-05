@@ -186,7 +186,7 @@ void OnTriggerEnter(Collider other)
 		else if (other.gameObject.tag == "Bouncer")
 		{
 			bounceSound = other.gameObject.transform.parent.gameObject.GetComponent<AudioSource>();
-			bounceSound.Play();
+			//bounceSound.Play();
 		}
 }
 
