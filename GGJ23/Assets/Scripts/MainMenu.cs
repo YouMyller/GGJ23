@@ -10,6 +10,8 @@ public class MainMenu : MonoBehaviour
 
 	private bool isShowingIntro;
 
+  	public AudioSource laulu;
+
 	public GameObject IntroImage1;
 	public GameObject IntroImage2;
 	public GameObject IntroImage3;
@@ -41,102 +43,102 @@ public class MainMenu : MonoBehaviour
 			{
 				IntroImage1.SetActive(true);
 			}
-			else if (timer > 5 && timer < 10)
+			else if (timer > 4 && timer < 8)
 			{
 				IntroImage1.SetActive(false);
 				IntroImage2.SetActive(true);
 			}
-			else if (timer > 10 && timer < 15)
+			else if (timer > 8 && timer < 12)
 			{
 				IntroImage2.SetActive(false);
 				IntroImage3.SetActive(true);
 			}
-			else if (timer > 15 && timer < 20)
+			else if (timer > 12 && timer < 16)
 			{
 				IntroImage3.SetActive(false);
 				IntroImage4.SetActive(true);
 			}
-			else if (timer > 20 && timer < 25)
+			else if (timer > 16 && timer < 20)
 			{
 				IntroImage4.SetActive(false);
 				IntroImage5.SetActive(true);
 			}
-			else if (timer > 25 && timer < 30)
+			else if (timer > 20 && timer < 24)
 			{
 				IntroImage5.SetActive(false);
 				IntroImage6.SetActive(true);
 			}
-			else if (timer > 30 && timer < 35)
+			else if (timer > 24 && timer < 28)
 			{
 				IntroImage6.SetActive(false);
 				IntroImage7.SetActive(true);
 			}
-			else if (timer > 35 && timer < 40)
+			else if (timer > 28 && timer < 32)
 			{
 				IntroImage7.SetActive(false);
 				IntroImage8.SetActive(true);
 			}
-			else if (timer > 40 && timer < 45)
+			else if (timer > 32 && timer < 36)
 			{
 				IntroImage8.SetActive(false);
 				IntroImage9.SetActive(true);
 			}
-			else if (timer > 45 && timer < 50)
+			else if (timer > 36 && timer < 40)
 			{
 				IntroImage9.SetActive(false);
 				IntroImage10.SetActive(true);
 			}
-			else if (timer > 50 && timer < 55)
+			else if (timer > 40 && timer < 44)
 			{
 				IntroImage10.SetActive(false);
 				IntroImage11.SetActive(true);
 			}
-			else if (timer > 55 && timer < 60)
+			else if (timer > 44 && timer < 48)
 			{
 				IntroImage11.SetActive(false);
 				IntroImage12.SetActive(true);
 			}
-			else if (timer > 60 && timer < 65)
+			else if (timer > 48 && timer < 52)
 			{
 				IntroImage12.SetActive(false);
 				IntroImage13.SetActive(true);
 			}
-			else if (timer > 65 && timer < 70)
+			else if (timer > 52 && timer < 56)
 			{
 				IntroImage13.SetActive(false);
 				IntroImage14.SetActive(true);
 			}
-			else if (timer > 70 && timer < 75)
+			else if (timer > 56 && timer < 60)
 			{
 				IntroImage14.SetActive(false);
 				IntroImage15.SetActive(true);
 			}
-			else if (timer > 75 && timer < 80)
+			else if (timer > 60 && timer < 64)
 			{
 				IntroImage15.SetActive(false);
 				IntroImage16.SetActive(true);
 			}
-			else if (timer > 80 && timer < 85)
+			else if (timer > 64 && timer < 68)
 			{
 				IntroImage16.SetActive(false);
 				IntroImage17.SetActive(true);
 			}
-			else if (timer > 85 && timer < 90)
+			else if (timer > 68 && timer < 72)
 			{
 				IntroImage17.SetActive(false);
 				IntroImage18.SetActive(true);
 			}
-			else if (timer > 90 && timer < 95)
+			else if (timer > 72 && timer < 76)
 			{
 				IntroImage18.SetActive(false);
 				IntroImage19.SetActive(true);
 			}
-			else if (timer > 95 && timer < 100)
+			else if (timer > 76 && timer < 80)
 			{
 				IntroImage19.SetActive(false);
 				IntroImage20.SetActive(true);
 			}
-			else if (timer > 100 && timer < 105)
+			else if (timer > 80 && timer < 84)
 			{
 				IntroImage20.SetActive(false);
 				StartGame();
@@ -146,6 +148,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartCutscene()
 {
+	laulu.Play();
 	isShowingIntro = true;
 }
 
