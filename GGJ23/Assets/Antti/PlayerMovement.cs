@@ -87,25 +87,25 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
             {
                 transform.eulerAngles = new Vector3(0, 45, 0);
-                rb.AddForce(forward + right / 2);
+                //rb.AddForce((forward + right) / 8);
             }
 
             if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
             {
                 transform.eulerAngles = new Vector3(0, -45, 0);
-                rb.AddForce(forward + -right / 2);
+                //rb.AddForce((forward + -right) / 8);
             }
 
             if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
             {
                 transform.eulerAngles = new Vector3(0, 135, 0);
-                rb.AddForce(-forward + right / 2);
+                //rb.AddForce((-forward + right) / 8);
             }
 
             if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
             {
                 transform.eulerAngles = new Vector3(0, -135, 0);
-                rb.AddForce(-forward + -right / 2);
+                //rb.AddForce((-forward + -right) / 8);
             }
 
             if(Input.GetKey(KeyCode.W) && Input.GetKeyUp(KeyCode.D))
@@ -216,25 +216,25 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
             {
                 transform.eulerAngles = new Vector3(0, 45, 0);
-                rb.AddForce(forward + right / 2 * airMovementSlowRatio);
+                //rb.AddForce(forward + right / 2 * airMovementSlowRatio);
             }
 
             if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
             {
                 transform.eulerAngles = new Vector3(0, -45, 0);
-                rb.AddForce(forward + -right / 2 * airMovementSlowRatio);
+                //rb.AddForce(forward + -right / 2 * airMovementSlowRatio);
             }
 
             if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
             {
                 transform.eulerAngles = new Vector3(0, 135, 0);
-                rb.AddForce(-forward + right / 2 * airMovementSlowRatio);
+                //rb.AddForce(-forward + right / 2 * airMovementSlowRatio);
             }
 
             if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
             {
                 transform.eulerAngles = new Vector3(0, -135, 0);
-                rb.AddForce(-forward + -right / 2 * airMovementSlowRatio);
+                //rb.AddForce(-forward + -right / 2 * airMovementSlowRatio);
             }
 
             if (Input.GetKey(KeyCode.W) && Input.GetKeyUp(KeyCode.D))
@@ -306,6 +306,7 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector3(0, rb.velocity.y, 0);
             timer = 0;
         }
+
 
 
 

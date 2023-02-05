@@ -11,17 +11,21 @@ public class PlayerShoot : MonoBehaviour
     public float destroyTime;
     private float delayTimer;
     private Rigidbody Player;
+    private Vector3 v3Force;
+
+    public AudioSource pum;
 
     // Start is called before the first frame update
     void Start()
     {
-        Player = GameObject.Find("PlayerController").GetComponent<Rigidbody>();
         delayTimer = delayTime;
+        Player = GameObject.Find("PlayerController").GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
         delayTimer += Time.deltaTime;
 
         if (Input.GetKey(KeyCode.LeftControl) && delayTimer > delayTime){
@@ -33,8 +37,13 @@ public class PlayerShoot : MonoBehaviour
 
     private void SpawnAmmo()
     {
-        GameObject newAmmo = Instantiate(ammo, new Vector3(transform.position.x + transform.right.x, transform.position.y, transform.position.z + transform.forward.z), gameObject.transform.rotation);
+	pum.Play();
+	
+        //Player.velocity = new Vector3(0, Player.velocity.y, 0);
+        v3Force = 50 * transform.forward + Player.velocity;
+        GameObject newAmmo = Instantiate(ammo, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
         newAmmo.transform.GetComponent<Rigidbody>().velocity = Player.velocity;
+        newAmmo.transform.GetComponent<Rigidbody>().AddForce(v3Force);
         Destroy(newAmmo, destroyTime);
     }
 
