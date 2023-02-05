@@ -24,7 +24,7 @@ public class SeedSpawn : MonoBehaviour
         if(CanPutSeed == true && Input.GetKeyDown(KeyCode.Q) && SeedHolder.GetComponent<SeedHolder>().bouncerSeeds > 0 && IsActive == true)
         {
             SeedHolder.GetComponent<SeedHolder>().RemoveBouncerSeed();
-            GameObject newAmmo = Instantiate(Bouncer, gameObject.transform.position, gameObject.transform.rotation);
+            GameObject newAmmo = Instantiate(Bouncer, gameObject.transform.position + new Vector3(0, 1,0), gameObject.transform.rotation);
             IsActive = false;
             
         }
@@ -32,7 +32,7 @@ public class SeedSpawn : MonoBehaviour
         if (CanPutSeed == true && Input.GetKeyDown(KeyCode.E ) && SeedHolder.GetComponent<SeedHolder>().StaticPlatformSeeds > 0 && IsActive == true)
         {
             SeedHolder.GetComponent<SeedHolder>().RemoveStaticPlatformSeed();
-            GameObject newAmmo = Instantiate(StaticPlatform, gameObject.transform.position, gameObject.transform.rotation);
+            GameObject newAmmo = Instantiate(StaticPlatform, gameObject.transform.position + new Vector3(0, 1, 0), gameObject.transform.rotation);
             IsActive = false;
         }
     }
